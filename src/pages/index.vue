@@ -51,27 +51,37 @@ function handleClick(source: any) {
 </script>
 
 <template>
-  <div>
+  <div class="mx-auto container">
     <div text-4xl>
-      <div i-carbon-campsite inline-block />
+      <div i-carbon-catalog-publish inline-block />
     </div>
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Templates
-      </a>
-    </p>
-    <div v-if="isCopied">
-      Copied
+    <h1 class="mb-8 text-2xl font-semibold">
+      Templates
+    </h1>
+    <div v-if="isCopied" class="mx-auto mb-3 max-w-sm flex items-center justify-between border-1 border-emerald-400 rounded-lg bg-emerald-200 text-emerald-600/80 transition">
+      <p />
+      <p>Copied</p>
+      <button class="bg-emerald-200 text-emerald-800 btn hover:bg-emerald-300" @click="() => isCopied = false">
+        x
+      </button>
     </div>
 
-    <div class="grid grid-cols-4 mx-auto max-w-lg">
-      <div v-for="template in templates" :key="template.name" class="grid-col-1 grid auto-rows-max grid-flow-row gap-1 p-2">
+    <div class="grid grid-cols-3 mx-auto max-w-2xl gap-6">
+      <div
+        v-for="template in templates" :key="template.name"
+        class="grid-col-1 grid gap-6 border-1 border-gray-200 rounded-xl px-6 py4"
+      >
         <h3 class="row-span-2">
           {{ template.name }}
         </h3>
-        <button class="place btn" @click="handleClick(template.text)">
-          copy
-        </button>
+        <div class="grid grid-cols-3 gap-3">
+          <button class="col-span-2 btn">
+            read text
+          </button>
+          <button class="place btn-copy" @click="handleClick(template.text)">
+            <div i-carbon-copy />
+          </button>
+        </div>
       </div>
     </div>
   </div>
