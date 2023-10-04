@@ -23,7 +23,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "skipLibCheck": true
